@@ -19,13 +19,7 @@ The system demonstrates backend development, database modeling, containerization
 
 ## Architecture
 
-FastAPI (Backend API)        
-        ↓
-                SQLAlchemy ORM        
-                        ↓
-PostgreSQL + TimescaleDB (Hypertables)
-        ↓
-Dockerized Deployment
+FastAPI → SQLAlchemy → PostgreSQL + TimescaleDB → Docker
 
 ---
 
