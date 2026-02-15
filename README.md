@@ -19,7 +19,7 @@ The system demonstrates backend development, database modeling, containerization
 
 ## Architecture
 
-FastAPI (Backend API)
+FastAPI (Backend API)        
         ↓
 SQLAlchemy ORM
         ↓
@@ -71,5 +71,5 @@ Columns include:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/backend-reporting-system.git
-cd backend-reporting-system
+git clone https://github.com/niyatichaurasia/fastapi-timeseries-reporting.git
+cd fastapi-timeseries-reporting
