@@ -1,0 +1,44 @@
+
+services:
+  fastapi:
+    build: ./fastapi
+    container_name: fastapi_app
+    ports:
+      - "8000:8000"
+    depends_on:
+      timescaledb_container:
+        condition: service_healthy
+    restart: always
+    environment:
+      - DATABASE_HOST=timescaledb_container
+      - DATABASE_PORT=5432
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=postgres
+      - DATABASE_NAME=ava_db
+    networks:
+      - ava_net
+
+  timescaledb_container:
+    image: timescale/timescaledb-ha:pg14-latest
+    container_name: timescaledb_container
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=ava_db
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    volumes:
+      - timescale_data:/var/lib/postgresql/data
+    networks:
+      - ava_net
+
+networks:
+  ava_net:
+
+volumes:
+  timescale_data:
