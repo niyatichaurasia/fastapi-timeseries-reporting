@@ -21,8 +21,8 @@ The system demonstrates backend development, database modeling, containerization
 
 FastAPI (Backend API)        
         ↓
-        SQLAlchemy ORM
-        ↓
+                SQLAlchemy ORM        
+                        ↓
 PostgreSQL + TimescaleDB (Hypertables)
         ↓
 Dockerized Deployment
